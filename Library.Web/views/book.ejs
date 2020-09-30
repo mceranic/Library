@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/menu %>
+<div class='container'>
+    <form action="/books/<%= book.id %>" method="post">
+        <div class='panel panel-primary' style='margin-top:24px;'>
+            <div class='panel-heading'>
+                <div class='image'><%= title %></div>
+            </div>
+            <div class='panel-body'>
+                <div class='row'>
+                    <div class='col-md-3'></div>
+                    <div class='col-md-6'>
+                        <input type="hidden" name="id" value="<%= book.id %>">
+                        <table class='table'>
+                            <tr>
+                                <td align='right'>Title: </td>
+                                <td><input type="text" class="form-control" name="title" value="<%= book.title %>"></td>
+                            </tr>
+                            <tr>
+                                <td align='right'>Pages: </td>
+                                <td><input type="text" class="form-control" name="pages" value="<%= book.pages %>"></td>
+                            </tr>
+                            <tr>
+                                <td align='right'>Price: </td>
+                                <td><input type="text" class="form-control" name="price" value="<%= book.price %>"></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class='col-md-3'></div>
+                </div>
+            </div>
+            <div class='panel-footer'>
+                <div class='row'>
+                    <div class='col-md-3'>
+                        Authors: <%= book.authors.length %>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class='pull-left'>
+
+                            <a href="/books/delete/<%= book.id %>"><button role="button" class="btn btn-warning btn-lg">Delete</button></a>
+
+                        </div>
+                        <div class='pull-right'>
+                                <a href="/books/<%= book.id %>"><button role="button" class="btn btn-success btn-lg">Save</button></a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
